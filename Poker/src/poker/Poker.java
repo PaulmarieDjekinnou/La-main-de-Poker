@@ -6,6 +6,7 @@
 package poker;
 
 import java.util.Scanner;
+import static poker.Carte.*;
 
 /**
  *
@@ -30,7 +31,7 @@ public class Poker {
         
         /*test de pairre*/
         Carte one = new Carte("Tr",2);
-        Carte two = new Carte("Tr",0);
+        Carte two = new Carte("Tr",2);
         Carte three = new Carte("Tr",8);
         Carte four = new Carte("Ca",3);
         Carte five = new Carte("Tr",1);
@@ -55,13 +56,17 @@ public class Poker {
         /* FIN */
         
         MainJoueur J = new MainJoueur(test);
-        System.out.println("La reponse est : "+J.determinerLaMain());
+        
+        /*System.out.println("La reponse est : "+J.determinerLaMain());
         /* fin controle */
         
-        System.out.println("Joueur 1, saisissez vos cartes:\n");
+        /*System.out.println("Joueur 1, saisissez vos cartes:\n");
         mainJoueur = scanner.nextLine();
         //On analyse la main
-        paquetDeCartes.controleDeMain(mainJoueur);
+        paquetDeCartes.controleDeMain(mainJoueur);*/
+        
+        int a = compareTwoCard(J.mainJ[0],J.mainJ[1]);
+        System.out.println(" "+a);
         
         
         

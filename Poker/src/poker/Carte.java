@@ -37,6 +37,21 @@ public class Carte {
         this.valeur = valeur;
     }
     
+    public static int compareTwoCard(Carte a, Carte b) {
+        /*Retourne 1 si la pemiere carte est plus grande
+          Retourne -1  si la deuxieme carte est plus grande
+          Retourne 0 si les deux cartes ont meme valeur*/
+        
+        if(a.valeur>b.valeur){
+         return 1; }else{
+            if(b.valeur>a.valeur){
+                return -1;
+            }else{
+                return 0;
+            }
+        }
+    }
+    
     
     
     
