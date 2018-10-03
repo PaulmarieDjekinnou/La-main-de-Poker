@@ -69,6 +69,15 @@ public class Paquet {
         return nbOccurences;
     }
 
+    public static boolean isANumber(String chaine){
+        try{
+            Integer.parseInt(chaine);
+            return true;
+        }catch(NumberFormatException nfe){
+            return false;
+        }
+    }
+
     public Carte controleDeMainContenant1Carte(String main){
         int posTr, posCa, posCo, posPi;
         int nbTr, nbCa, nbCo, nbPi;
@@ -101,6 +110,8 @@ public class Paquet {
                 sousChaine = chaine.substring(chaine.length() - 2);
                 //System.out.println(sousChaine);
                 if (sousChaine.equals("Tr") || sousChaine.equals("Ca") || sousChaine.equals("Co") || sousChaine.equals("Pi")) {
+                 {
+                        //mainV.setType("Tr");
                     if (sousChaine.equals("Tr")) mainV.setType("Tr");
                     if (sousChaine.equals("Ca")) mainV.setType("Ca");
                     if (sousChaine.equals("Co")) mainV.setType("Co");
@@ -112,25 +123,26 @@ public class Paquet {
                     }else {
                         sousChaine = chaine.substring(0,1);
                         if (sousChaine.equals("V")) mainV.setValeur(11);
-                        if (sousChaine.equals("D")) mainV.setValeur(12);
-                        if (sousChaine.equals("R")) mainV.setValeur(13);
-                        if (sousChaine.equals("A")) mainV.setValeur(14);
-                        else {
+                        else if (sousChaine.equals("D")) mainV.setValeur(12);
+                        else if (sousChaine.equals("R")) mainV.setValeur(13);
+                        else if (sousChaine.equals("A")) mainV.setValeur(14);
+                        else if (isANumber(sousChaine) == true){
+                            //System.out.println(isANumber(sousChaine));
                             int testTrueInt = 0;
                             testTrueInt = Integer.parseInt(sousChaine);
                             if (testTrueInt == 0) return new Carte();
-                            else {//System.out.println("ok");
+                            else {
                                 mainV.setValeur(testTrueInt);
-
                                 return mainV;
                             }
                         }
-                        return mainV;
+                        else return new Carte();
                     }
-                } else return new Carte();
+                }
             }
         }
-
+        
+    } return mainV;
     }
     
     public void affichepaquet()

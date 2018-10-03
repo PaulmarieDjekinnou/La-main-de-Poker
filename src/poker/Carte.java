@@ -41,24 +41,30 @@ public class Carte {
     }
     
     //Implémentation 2 joueurs, une carte chacun
-    public static int compareTwoCard(Carte a, Carte b) {
+    public int compareTwoCard(Carte b) {
         /*Retourne 1 si la pemiere carte est plus grande
           Retourne -1  si la deuxieme carte est plus grande
           Retourne 0 si les deux cartes ont meme valeur*/
         
-        if(a.valeur>b.valeur){
-         return 1; }else{
-            if(b.valeur>a.valeur){
+        if(this.valeur>b.valeur){
+         return 1; 
+        }else{
+            if(b.valeur>this.valeur){
                 return -1;
             }else{
                 return 0;
             }
         }
     }
+    
 
 
     public String toString() {
-        return valeur +type;
+        if (valeur == 11) return "V"+type;
+        if (valeur == 12) return "D"+type;
+        if (valeur == 13) return "R"+type;
+        if (valeur == 14) return "A"+type;
+        return valeur + type;
     }
 }
 
