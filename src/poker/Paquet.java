@@ -69,15 +69,6 @@ public class Paquet {
         return nbOccurences;
     }
 
-    public static boolean isANumber(String chaine){
-        try{
-            Integer.parseInt(chaine);
-            return true;
-        }catch(NumberFormatException nfe){
-            return false;
-        }
-    }
-
     public Carte controleDeMainContenant1Carte(String main){
         int posTr, posCa, posCo, posPi;
         int nbTr, nbCa, nbCo, nbPi;
@@ -109,12 +100,11 @@ public class Paquet {
                 String sousChaine = new String("");
                 sousChaine = chaine.substring(chaine.length() - 2);
                 //System.out.println(sousChaine);
-                //if (sousChaine.equals("Tr") || sousChaine.equals("Ca") || sousChaine.equals("Co") || sousChaine.equals("Pi")) {
-                if (sousChaine.equals("Tr")){
-                        mainV.setType("Tr");
-                    /*if (sousChaine.equals("Ca")) mainV.setType("Ca");
+                if (sousChaine.equals("Tr") || sousChaine.equals("Ca") || sousChaine.equals("Co") || sousChaine.equals("Pi")) {
+                    if (sousChaine.equals("Tr")) mainV.setType("Tr");
+                    if (sousChaine.equals("Ca")) mainV.setType("Ca");
                     if (sousChaine.equals("Co")) mainV.setType("Co");
-                    if (sousChaine.equals("Pi")) mainV.setType("Pi");*/
+                    if (sousChaine.equals("Pi")) mainV.setType("Pi");
                     //On vérifie la valeur
                     if (nbOccurences("10", chaine) == 1){
                         mainV.setValeur(10);
@@ -122,25 +112,25 @@ public class Paquet {
                     }else {
                         sousChaine = chaine.substring(0,1);
                         if (sousChaine.equals("V")) mainV.setValeur(11);
-                        else if (sousChaine.equals("D")) mainV.setValeur(12);
-                        else if (sousChaine.equals("R")) mainV.setValeur(13);
-                        else if (sousChaine.equals("A")) mainV.setValeur(14);
-                        else if (isANumber(sousChaine) == true){
-                            System.out.println(isANumber(sousChaine));
+                        if (sousChaine.equals("D")) mainV.setValeur(12);
+                        if (sousChaine.equals("R")) mainV.setValeur(13);
+                        if (sousChaine.equals("A")) mainV.setValeur(14);
+                        else {
                             int testTrueInt = 0;
                             testTrueInt = Integer.parseInt(sousChaine);
                             if (testTrueInt == 0) return new Carte();
-                            else {
+                            else {//System.out.println("ok");
                                 mainV.setValeur(testTrueInt);
+
                                 return mainV;
                             }
                         }
-                        else return new Carte();
+                        return mainV;
                     }
                 } else return new Carte();
             }
         }
-        return mainV;
+
     }
     
     public void affichepaquet()

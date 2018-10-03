@@ -48,9 +48,10 @@ public class Poker {
                     System.out.println();
                     System.out.print("Main 1: "+testCarte1.toString()+"\n");
                     System.out.print("Main 2: "+testCarte2.toString()+"\n");
-                    int res = compareTwoCard(testCarte1, testCarte2);
+                    int res = testCarte1.compareTwoCard(testCarte2);
                     if (res == 1) System.out.println("Main 1 a gagné");
-                    else System.out.println("Main 2 a gagné");
+                    else if (res == -1) System.out.println("Main 2 a gagné");
+                    else System.out.println("Egalité");
                 }
             }
         }
