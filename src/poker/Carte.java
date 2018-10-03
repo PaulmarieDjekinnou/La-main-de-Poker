@@ -58,7 +58,11 @@ public class Carte {
 
 
     public String toString() {
-        return valeur +type;
+        if (valeur == 11) return "V"+type;
+        if (valeur == 12) return "D"+type;
+        if (valeur == 13) return "R"+type;
+        if (valeur == 14) return "A"+type;
+        return valeur + type;
     }
 }
 

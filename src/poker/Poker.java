@@ -28,7 +28,7 @@ public class Poker {
 
         System.out.println("*****Kata - La main de Poker*****\n");
         System.out.println("Bienvenue!!!\n");
-        System.out.println("Instruczions: Veuillez saisir une carte uniquement de type Trèfle\nExemple: 2Tr\n");
+        System.out.println("Instructions: Veuillez saisir une carte uniquement de type Trèfle\nExemple: 2Tr\n");
         System.out.print("Main 1: ");
         main = scanner.nextLine();
         Carte testCarte1 = paquet.controleDeMainContenant1Carte(main);
@@ -45,6 +45,7 @@ public class Poker {
             if (testCarte2.getType().equals("") && testCarte2.getValeur() == 0) System.out.println("Carte non valide!!!");
             else{
                 if (!paquet.carteIsSelected(testCarte2)){
+                    System.out.println();
                     System.out.print("Main 1: "+testCarte1.toString()+"\n");
                     System.out.print("Main 2: "+testCarte2.toString()+"\n");
                     int res = compareTwoCard(testCarte1, testCarte2);
@@ -53,7 +54,7 @@ public class Poker {
                 }
             }
         }
-        
+
     }
     
 }
