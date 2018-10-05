@@ -7,7 +7,7 @@ package poker;
 
 /**
  *
- * @author thevie
+ * @author PS5
  */
 public class Carte {
     private String type;
