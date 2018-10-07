@@ -28,7 +28,7 @@ public class MainBrelan extends MainJeu{
            CarteVal.add(main.mainJ[0].getValeur());
            
            int boucle = 0;
-           for(boucle=1;boucle<3;boucle++)
+           for(boucle=1;boucle<5;boucle++)
            {
                if (!CarteVal.contains(main.mainJ[boucle].getValeur()))
                   CarteVal.add(main.mainJ[boucle].getValeur());
@@ -44,7 +44,7 @@ public class MainBrelan extends MainJeu{
            int boucle1 = 0;
            for(boucle=0;boucle<CarteVal.size();boucle++)
            {
-              for(boucle1=0;boucle1<3;boucle1++)
+              for(boucle1=0;boucle1<5;boucle1++)
               {
                   if (main.mainJ[boucle1].getValeur() == CarteVal.get(boucle))
                   {

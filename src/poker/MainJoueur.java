@@ -33,9 +33,9 @@ public class MainJoueur {
         /* Tri croissant des cartes */
         
         int i=0,j=0,temp=0;
-        for(i=0;i<4;i++)
+        for(i=0;i<5;i++)
         {
-            for(j=i+1;j<4;j++)
+            for(j=i+1;j<5;j++)
             {
                 if (this.mainJ[i].getValeur() > this.mainJ[j].getValeur())
                 {
@@ -84,7 +84,7 @@ public class MainJoueur {
     public void AfficherCarte()
     {
         int a = 0;
-        for(a=0;a<3;a++)
+        for(a=0;a<5;a++)
         {
             System.out.println("Le type est : "+mainJ[a].getType()+" la valeur est "+mainJ[a].getValeur());       
         }

@@ -29,12 +29,12 @@ public class CombinaisonJoueur {
         boolean TruePaire = combinaisonJ.CombinaisonIsPairre();
         boolean TrueBrelan = combinaisonJ.CombinaisonIsBrelan();
         boolean True2Paire = combinaisonJ.CombinaisonIs2Paire();
-        boolean TrueSuite = false;
+        boolean TrueSuite = combinaisonJ.CombinaisonIsSuite();
         boolean TrueCouleur = false;
         boolean TrueFull = false;
         boolean TrueQuinte = false;
         boolean TrueCarre = false;
-        
+      
         if(TruePaire) Liste.add("Paire");
         if(TrueBrelan) Liste.add("Brelan");
         if(True2Paire) Liste.add("2Paire");

@@ -27,7 +27,7 @@ public class MainPaire extends MainJeu{
            CarteVal.add(main.mainJ[0].getValeur());
            
            int boucle = 0;
-           for(boucle=1;boucle<3;boucle++)
+           for(boucle=1;boucle<5;boucle++)
            {
                if (!CarteVal.contains(main.mainJ[boucle].getValeur()))
                   CarteVal.add(main.mainJ[boucle].getValeur());
@@ -43,7 +43,7 @@ public class MainPaire extends MainJeu{
            int boucle1 = 0;
            for(boucle=0;boucle<CarteVal.size();boucle++)
            {
-              for(boucle1=0;boucle1<3;boucle1++)
+              for(boucle1=0;boucle1<5;boucle1++)
               {
                   if (main.mainJ[boucle1].getValeur() == CarteVal.get(boucle))
                   {
@@ -67,10 +67,10 @@ public class MainPaire extends MainJeu{
     
     int[] RetourneListeDes3CartesRestantTriee()
     {
-           int[] CarteVal = new int[1];
+           int[] CarteVal = new int[3];
            int compte = 0;
            int boucle = 0;
-           for(boucle=0;boucle<3;boucle++)
+           for(boucle=0;boucle<5;boucle++)
            {
                if (main.mainJ[boucle].getValeur() != ValeurPaire)
                {

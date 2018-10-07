@@ -17,5 +17,9 @@ public class MainPlusHauteCarte extends MainJeu {
         super(main,Nom);
     }
     
-    
+    int DeterminerLaCartePlusHaute(int a)
+    {
+        main.RangerCarteOrdreCroissant();
+        return main.mainJ[a].getValeur();
+    }
 }

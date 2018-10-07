@@ -27,7 +27,7 @@ public class CombinaisonJeu {
            CarteVal.add(main.mainJ[0].getValeur());
       
            int boucle = 0;
-           for(boucle=1;boucle<4;boucle++)
+           for(boucle=1;boucle<5;boucle++)
            {
                if (!CarteVal.contains(main.mainJ[boucle].getValeur()))
                   CarteVal.add(main.mainJ[boucle].getValeur());
@@ -42,7 +42,7 @@ public class CombinaisonJeu {
            int boucle1 = 0;
            for(boucle=0;boucle<CarteVal.size();boucle++)
            {
-              for(boucle1=0;boucle1<4;boucle1++)
+              for(boucle1=0;boucle1<5;boucle1++)
               {
                   if (main.mainJ[boucle1].getValeur() == CarteVal.get(boucle))
                   {
@@ -60,11 +60,11 @@ public class CombinaisonJeu {
     
     boolean CombinaisonIs2Paire()
     {
-           boolean True2Pairre = true;
+           boolean True2Pairre = false;
            ArrayList<Integer> CarteVal = new ArrayList<Integer> ();
            CarteVal.add(main.mainJ[0].getValeur());      
            int boucle = 0;
-           for(boucle=1;boucle<4;boucle++)
+           for(boucle=1;boucle<5;boucle++)
            {
                if (!CarteVal.contains(main.mainJ[boucle].getValeur()))
                   CarteVal.add(main.mainJ[boucle].getValeur());
@@ -78,7 +78,7 @@ public class CombinaisonJeu {
            int boucle1 = 0;
            for(boucle=0;boucle<CarteVal.size();boucle++)
            {
-              for(boucle1=0;boucle1<4;boucle1++)
+              for(boucle1=0;boucle1<5;boucle1++)
               {
                   if (main.mainJ[boucle1].getValeur() == CarteVal.get(boucle))
                   {
@@ -101,18 +101,19 @@ public class CombinaisonJeu {
                     base = base + 1;
                 }
             }
+            
             if (verif == 2 && (index[0] != index[1] )) True2Pairre = true;
             return True2Pairre;
     }
     
      boolean CombinaisonIsBrelan()
      {
-           boolean TrueBrelan = true;
+           boolean TrueBrelan = false;
            ArrayList<Integer> CarteVal = new ArrayList<Integer> ();
            CarteVal.add(main.mainJ[0].getValeur());
            
            int boucle = 0;
-           for(boucle=1;boucle<4;boucle++)
+           for(boucle=1;boucle<5;boucle++)
            {
                if (!CarteVal.contains(main.mainJ[boucle].getValeur()))
                   CarteVal.add(main.mainJ[boucle].getValeur());
@@ -126,7 +127,7 @@ public class CombinaisonJeu {
            int boucle1 = 0;
            for(boucle=0;boucle<CarteVal.size();boucle++)
            {
-              for(boucle1=0;boucle1<4;boucle1++)
+              for(boucle1=0;boucle1<5;boucle1++)
               {
                   if (main.mainJ[boucle1].getValeur() == CarteVal.get(boucle))
                   {
@@ -139,6 +140,25 @@ public class CombinaisonJeu {
             if (CarteOcc.contains(3))TrueBrelan = true;
             else TrueBrelan = false;
             return TrueBrelan;
+    }
+     
+     boolean CombinaisonIsSuite()
+    {
+          boolean TrueSuite = false;
+          int compteur = 0;
+          int valeurT = main.mainJ[0].getValeur();  //Valeur de la plus petite carte
+          int boucle = 0;
+          for(boucle=1;boucle<5;boucle++)
+          {
+             if (main.mainJ[boucle].getValeur()==valeurT+1)   valeurT = main.mainJ[boucle].getValeur();
+             else 
+             {
+                 TrueSuite = false;
+                 break;
+             }
+             
+          }
+          return TrueSuite;
     }
     
 }
