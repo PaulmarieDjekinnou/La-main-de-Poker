@@ -44,6 +44,7 @@ public class Arbitre {
                 case 2 : reponse = this.departagerDeuxPaire(); break;
                 case 3 : reponse = this.departagerBrelan(); break; 
                 case 4 : reponse = this.departagerSuite(); break;
+                case 5 : reponse = this.departagerCouleur(); break;
             }
             
             if(reponse==1) Vainqueur="Main1";
@@ -69,7 +70,7 @@ public class Arbitre {
         MainPlusHauteCarte MainT = new MainPlusHauteCarte(MainTwo,"Plus Haute Carte");
         int a = 4;
         int reponse = 0;
-        while (MainO.DeterminerLaCartePlusHaute(a) == MainT.DeterminerLaCartePlusHaute(a))
+        while (MainO.determinerLaCartePlusHaute(a) == MainT.determinerLaCartePlusHaute(a))
         {
             a = a - 1;
             if (a<0) break;
@@ -85,49 +86,47 @@ public class Arbitre {
     
       int departagerDeuxPaire()
     {
-        MainOne.RangerCarteOrdreCroissant();
-        MainTwo.RangerCarteOrdreCroissant();   
+        MainOne.rangerCarteOrdreCroissant();
+        MainTwo.rangerCarteOrdreCroissant();   
         MainDeuxPaire MainO = new MainDeuxPaire(MainOne,"2Paire");
         MainDeuxPaire MainT = new MainDeuxPaire(MainTwo,"2Paire");
         
-        int[] tab1 = MainO.RenvoitValeur2Pairre();
-        int[] tab2 = MainT.RenvoitValeur2Pairre();  
+        int[] tab1 = MainO.renvoitValeur2Pairre();
+        int[] tab2 = MainT.renvoitValeur2Pairre();  
         int a = 1;
         while (tab1[a] == tab2[a])
             {
                 a = a - 1;
                 if (a<0) break;
             }
-
         if (a<0)
         {   
-            int val1 = MainO.RetourneValeurDerniereCarte(tab1);
-            int val2 = MainT.RetourneValeurDerniereCarte(tab2);
+            int val1 = MainO.retourneValeurDerniereCarte(tab1);
+            int val2 = MainT.retourneValeurDerniereCarte(tab2);
             
             if (val1 > val2) return 1;
             else if (val1 < val2) return -1;
             else return 0;
         }
         else if (tab1[a] > tab2[a]) return 1;
-        else return -1;
-              
+        else return -1; 
     }
       
     int departagerPaire()
     {
-        MainOne.RangerCarteOrdreCroissant();
-        MainTwo.RangerCarteOrdreCroissant();
+        MainOne.rangerCarteOrdreCroissant();
+        MainTwo.rangerCarteOrdreCroissant();
         MainPaire PaireOne = new MainPaire(MainOne,"Paire");
         MainPaire PaireTwo = new MainPaire(MainTwo,"Paire");
-        int Paire1 = PaireOne.RenvoitValeurPairre();
-        int Paire2 = PaireTwo.RenvoitValeurPairre();
+        int Paire1 = PaireOne.renvoitValeurPairre();
+        int Paire2 = PaireTwo.renvoitValeurPairre();
         
         if (Paire1 > Paire2)  return 1;
         else if (Paire1 < Paire2) return -1; 
         else 
         {
-            int[] tab1 = PaireOne.RetourneListeDes3CartesRestantTriee();
-            int[] tab2 = PaireTwo.RetourneListeDes3CartesRestantTriee();
+            int[] tab1 = PaireOne.retourneListeDes3CartesRestantTriee();
+            int[] tab2 = PaireTwo.retourneListeDes3CartesRestantTriee();
             int a = 2;
             int reponse = 0;
             while (tab1[a] == tab2[a])
@@ -148,15 +147,35 @@ public class Arbitre {
     
     int departagerBrelan()
     {
-        MainOne.RangerCarteOrdreCroissant();
-        MainTwo.RangerCarteOrdreCroissant(); 
+        MainOne.rangerCarteOrdreCroissant();
+        MainTwo.rangerCarteOrdreCroissant(); 
         MainBrelan BrelanOne = new MainBrelan(MainOne,"Brelan");
         MainBrelan BrelanTwo = new MainBrelan(MainTwo,"Brelan");
-        int val1 = BrelanOne.RenvoiValeurBrelan();
-        int val2 = BrelanTwo.RenvoiValeurBrelan();
+        int val1 = BrelanOne.renvoiValeurBrelan();
+        int val2 = BrelanTwo.renvoiValeurBrelan();
         
         if(val1 > val2) return 1;
         else if (val1 < val2) return -1;
         return 0;
+    }
+    
+    int departagerCouleur()
+    {
+        MainCouleur MainO = new MainCouleur(MainOne,"Couleur");
+        MainCouleur MainT = new MainCouleur(MainTwo,"Couleur");
+        int a = 4;
+        int reponse = 0;
+        while (MainO.determinerLaCartePlusHaute(a) == MainT.determinerLaCartePlusHaute(a))
+        {
+            a = a - 1;
+            if (a<0) break;
+        }
+        if (a<0) return 0;
+        else
+        {
+            if (MainOne.mainJ[a].getValeur() > MainTwo.mainJ[a].getValeur()) 
+                return 1;
+            else return -1;
+        }
     }
 }

@@ -15,47 +15,47 @@ import java.util.ArrayList;
 public class CombinaisonJoueur {
     
     MainJoueur main;
-    ArrayList<String> Liste;
-    String MeilleurCombinaison;
+    ArrayList<String> liste;
+    String meilleurCombinaison;
     
     public CombinaisonJoueur(MainJoueur main){
        this.main = main;
-       this.Liste = new ArrayList<>();
+       this.liste = new ArrayList<>();
     }
     
-    public void RechercherLesCombinaisons()
+    public void rechercherLesCombinaisons()
     {
         CombinaisonJeu combinaisonJ = new CombinaisonJeu(this.main);
-        boolean TruePaire = combinaisonJ.CombinaisonIsPairre();
-        boolean TrueBrelan = combinaisonJ.CombinaisonIsBrelan();
-        boolean True2Paire = combinaisonJ.CombinaisonIs2Paire();
-        boolean TrueSuite = combinaisonJ.CombinaisonIsSuite();
-        boolean TrueCouleur = false;
+        boolean TruePaire = combinaisonJ.combinaisonIsPairre();
+        boolean TrueBrelan = combinaisonJ.combinaisonIsBrelan();
+        boolean True2Paire = combinaisonJ.combinaisonIs2Paire();
+        boolean TrueSuite = combinaisonJ.combinaisonIsSuite();
+        boolean TrueCouleur = combinaisonJ.combinaisonIsCouleur();
         boolean TrueFull = false;
         boolean TrueQuinte = false;
         boolean TrueCarre = false;
       
-        if(TruePaire) Liste.add("Paire");
-        if(TrueBrelan) Liste.add("Brelan");
-        if(True2Paire) Liste.add("2Paire");
-        if(TrueSuite) Liste.add("Suite");
-        if(TrueCouleur) Liste.add("Couleur");
-        if(TrueFull) Liste.add("Full");
-        if(TrueQuinte) Liste.add("Quinte flush");
-        if(TrueCarre) Liste.add("Carre");
+        if(TruePaire) liste.add("Paire");
+        if(TrueBrelan) liste.add("Brelan");
+        if(True2Paire) liste.add("2Paire");
+        if(TrueSuite) liste.add("Suite");
+        if(TrueCouleur) liste.add("Couleur");
+        if(TrueFull) liste.add("Full");
+        if(TrueQuinte) liste.add("Quinte flush");
+        if(TrueCarre) liste.add("Carre");
     }
     
-    public int RechercheMeilleureCombinaison()
+    public int rechercheMeilleureCombinaison()
     {
         int a = 0;
         int Max = 0;
         int NumCombi;
                
-        if(Liste != null)
+        if(liste != null)
         {
-            for(a=0;a<Liste.size();a++)
+            for(a=0;a<liste.size();a++)
             {
-                NumCombi = convertirMain(Liste.get(a));
+                NumCombi = convertirMain(liste.get(a));
                 if (NumCombi > Max) Max = NumCombi;
             }
         }     
@@ -80,21 +80,21 @@ public class CombinaisonJoueur {
         return retour;
     }
     
-    public String RetourneMeilleurCombinaison()
+    public String retournemeilleurCombinaison()
     {
-        int NumCombi = this.RechercheMeilleureCombinaison();
+        int NumCombi = this.rechercheMeilleureCombinaison();
         switch(NumCombi){
-                        case 0 : this.MeilleurCombinaison = "Plus haute carte"; break;
-                        case 1 : this.MeilleurCombinaison = "Paire" ; break;
-                        case 2 : this.MeilleurCombinaison = "2Paire" ; break;                       
-                        case 3 : this.MeilleurCombinaison = "Brelan" ; break; 
-                        case 4 : this.MeilleurCombinaison = "Suite" ; break;
-                        case 5 : this.MeilleurCombinaison = "Couleur" ; break;                                                                  
-                        case 6 : this.MeilleurCombinaison = "Full" ; break;
-                        case 7 : this.MeilleurCombinaison = "Carre" ; break;                
-                        case 8 : this.MeilleurCombinaison = "Quinte flush" ;  break;                
+                        case 0 : this.meilleurCombinaison = "Plus haute carte"; break;
+                        case 1 : this.meilleurCombinaison = "Paire" ; break;
+                        case 2 : this.meilleurCombinaison = "2Paire" ; break;                       
+                        case 3 : this.meilleurCombinaison = "Brelan" ; break; 
+                        case 4 : this.meilleurCombinaison = "Suite" ; break;
+                        case 5 : this.meilleurCombinaison = "Couleur" ; break;                                                                  
+                        case 6 : this.meilleurCombinaison = "Full" ; break;
+                        case 7 : this.meilleurCombinaison = "Carre" ; break;                
+                        case 8 : this.meilleurCombinaison = "Quinte flush" ;  break;                
        }
-        return this.MeilleurCombinaison;
+        return this.meilleurCombinaison;
     }
                                                   
 }

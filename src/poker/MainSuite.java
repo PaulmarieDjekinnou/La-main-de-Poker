@@ -11,7 +11,7 @@ package poker;
  */
 public class MainSuite extends MainJeu{
     
-    int ValeurSuite;
+    int valeurSuite;
     
     public MainSuite(MainJoueur main,String Nom)
     {
@@ -20,8 +20,8 @@ public class MainSuite extends MainJeu{
     
     int RenvoitValeurSuite()
     {
-        this.main.RangerCarteOrdreCroissant();
-        this.ValeurSuite = this.main.mainJ[4].getValeur();
-        return ValeurSuite;
+        this.main.rangerCarteOrdreCroissant();
+        this.valeurSuite = this.main.mainJ[4].getValeur();
+        return valeurSuite;
     }
 }

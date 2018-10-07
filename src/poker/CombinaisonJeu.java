@@ -20,7 +20,7 @@ public class CombinaisonJeu {
         this.main = main;
     }
     
-    public boolean CombinaisonIsPairre()
+    public boolean combinaisonIsPairre()
     {
            boolean TruePaire = true;
            ArrayList<Integer> CarteVal = new ArrayList<Integer> ();
@@ -58,7 +58,7 @@ public class CombinaisonJeu {
            return TruePaire;
     }
     
-    boolean CombinaisonIs2Paire()
+    boolean combinaisonIs2Paire()
     {
            boolean True2Pairre = false;
            ArrayList<Integer> CarteVal = new ArrayList<Integer> ();
@@ -106,7 +106,7 @@ public class CombinaisonJeu {
             return True2Pairre;
     }
     
-     boolean CombinaisonIsBrelan()
+     boolean combinaisonIsBrelan()
      {
            boolean TrueBrelan = false;
            ArrayList<Integer> CarteVal = new ArrayList<Integer> ();
@@ -142,9 +142,9 @@ public class CombinaisonJeu {
             return TrueBrelan;
     }
      
-     boolean CombinaisonIsSuite()
+     boolean combinaisonIsSuite()
     {
-          boolean TrueSuite = false;
+          boolean TrueSuite = true;
           int compteur = 0;
           int valeurT = main.mainJ[0].getValeur();  //Valeur de la plus petite carte
           int boucle = 0;
@@ -159,6 +159,22 @@ public class CombinaisonJeu {
              
           }
           return TrueSuite;
+    }
+     
+    boolean combinaisonIsCouleur()
+    {
+            boolean TrueCouleur = false;
+            String commun = main.mainJ[0].getType();
+            int boucle = 0;
+            int compteur = 1;
+            for(boucle=1;boucle<5;boucle++)
+            {
+                if (commun.equals(main.mainJ[boucle].getType())) compteur = compteur + 1;
+                  else break;
+            }
+            if (compteur == 5 ) TrueCouleur = true;
+            else TrueCouleur = false;    
+            return TrueCouleur;
     }
     
 }

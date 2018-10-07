@@ -13,14 +13,14 @@ import java.util.ArrayList;
  */
 public class MainDeuxPaire extends MainJeu{
     
-    int[] Valeur2Paire;
-    int   DerniereValeure;
+    int[] valeur2Paire;
+    int   derniereValeure;
     
     public MainDeuxPaire(MainJoueur main,String Nom){
         super(main,Nom);
     }
     
-    int[] RenvoitValeur2Pairre()
+    int[] renvoitValeur2Pairre()
     {
            ArrayList<Integer> CarteVal = new ArrayList<Integer> ();
            CarteVal.add(main.mainJ[0].getValeur());
@@ -65,11 +65,11 @@ public class MainDeuxPaire extends MainJeu{
                     base = base + 1;
                 }
             }
-            this.Valeur2Paire = index;
-            return Valeur2Paire;
+            this.valeur2Paire = index;
+            return valeur2Paire;
     }
     
-    int RetourneValeurDerniereCarte(int[] index)
+    int retourneValeurDerniereCarte(int[] index)
     {
         int a = 0;
         int retour = 0;
@@ -80,7 +80,7 @@ public class MainDeuxPaire extends MainJeu{
                   retour = main.mainJ[a].getValeur();         
                 }
             }
-        this.DerniereValeure = retour;
-        return this.DerniereValeure;
+        this.derniereValeure = retour;
+        return this.derniereValeure;
     }
 }

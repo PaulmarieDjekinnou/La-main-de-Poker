@@ -7,12 +7,11 @@ package poker;
 
 /**
  *
- * @author PS5
+ * @author KOFFI Merveille
  */
-public class MainPlusHauteCarte extends MainJeu {
-     
+public class MainCouleur extends MainJeu{
     
-    public MainPlusHauteCarte(MainJoueur main,String Nom)
+    public MainCouleur(MainJoueur main,String Nom)
     {
         super(main,Nom);
     }

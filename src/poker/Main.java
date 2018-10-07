@@ -25,15 +25,15 @@ public class Main {
         System.out.println("*****Kata - La main de Poker*****\n");
         System.out.println("Bienvenue!!!\n");
         System.out.print("Main 1: ");
-        Main1.LireMain(paquet,5);
+        Main1.lireMain(paquet,1);
         System.out.print("Main 2: ");
-        Main2.LireMain(paquet,5);
+        Main2.lireMain(paquet,5);
        
         System.out.println("Main 1 : "+Main1.determinerLaMain());
         System.out.println("Main 2 : "+Main2.determinerLaMain());
                     
-        if (Main1.CompareMain(Main2) == 1) System.out.println("Main 1 a gagné");
-        else if (Main1.CompareMain(Main2) == -1) System.out.println("Main 2 a gagné");
+        if (Main1.compareMain(Main2) == 1) System.out.println("Main 1 a gagné");
+        else if (Main1.compareMain(Main2) == -1) System.out.println("Main 2 a gagné");
         else System.out.println("Egalité");
         
      }

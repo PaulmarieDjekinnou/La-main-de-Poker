@@ -12,11 +12,11 @@ package poker;
 public class MainJeu {
     
     MainJoueur main;
-    String Nom;
+    String nom;
     
-    public MainJeu(MainJoueur main,String Nom)
+    public MainJeu(MainJoueur main,String nom)
     { 
         this.main = main;
-        this.Nom = Nom;
+        this.nom = nom;
     }
 }

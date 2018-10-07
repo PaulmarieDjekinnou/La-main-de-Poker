@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class MainBrelan extends MainJeu{
     
-    int ValeurBrelan;
+    int valeurBrelan;
     
     public MainBrelan(MainJoueur main,String Nom)
     {
@@ -21,7 +21,7 @@ public class MainBrelan extends MainJeu{
     }
     
     
-    int RenvoiValeurBrelan()
+    int renvoiValeurBrelan()
     {
        
            ArrayList<Integer> CarteVal = new ArrayList<Integer> ();
@@ -62,8 +62,8 @@ public class MainBrelan extends MainJeu{
                   retour = CarteVal.get(boucle);
             }   
             
-            ValeurBrelan = retour;
-            return ValeurBrelan;
+            valeurBrelan = retour;
+            return valeurBrelan;
     }
     
     

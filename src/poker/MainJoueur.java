@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class MainJoueur {
     
     Carte mainJ[] = new Carte[5];
-    String ComBinaison;
+    String combinaison;
     
     public MainJoueur(Carte... main) {
         
@@ -28,7 +28,7 @@ public class MainJoueur {
     public MainJoueur(){   
     }
     
-    void RangerCarteOrdreCroissant()       
+    void rangerCarteOrdreCroissant()       
     {
         /* Tri croissant des cartes */
         
@@ -53,22 +53,22 @@ public class MainJoueur {
    
     public String determinerLaMain()
     {       
-        this.RangerCarteOrdreCroissant();
+        this.rangerCarteOrdreCroissant();
         String Reponse = "";
         CombinaisonJoueur combinaison = new CombinaisonJoueur(this);
-        combinaison.RechercherLesCombinaisons();
-        Reponse = combinaison.RetourneMeilleurCombinaison();       
-        this.ComBinaison = Reponse;
+        combinaison.rechercherLesCombinaisons();
+        Reponse = combinaison.retournemeilleurCombinaison();       
+        this.combinaison = Reponse;
         return Reponse;
     }
     
     public String getCombinaison()
     {
-        return ComBinaison;
+        return combinaison;
     }
      
      
-    public int CompareMain(MainJoueur Main)
+    public int compareMain(MainJoueur Main)
     {
         Arbitre arbitre = new Arbitre(this,Main);
         arbitre.ComparerLesDeuxMains();
@@ -81,7 +81,7 @@ public class MainJoueur {
     
    
     //AfficherCarte(); permet d'afficher le type et la valeur d'une carte
-    public void AfficherCarte()
+    public void afficherCarte()
     {
         int a = 0;
         for(a=0;a<5;a++)
@@ -91,7 +91,7 @@ public class MainJoueur {
     }
     
    
-    void LireMain(Paquet paquet,int b)
+    void lireMain(Paquet paquet,int b)
     {
         Scanner scanner = new Scanner(System.in);   
         String main;

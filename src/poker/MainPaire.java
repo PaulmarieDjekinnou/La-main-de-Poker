@@ -13,15 +13,15 @@ import java.util.ArrayList;
  */
 public class MainPaire extends MainJeu{
     
-    int ValeurPaire;
-    int[] ListeDes3CartesRestantTrie;
+    int valeurPaire;
+    int[] listeDes3CartesRestantTrie;
     
     public MainPaire(MainJoueur main,String Nom)
     {
         super(main,Nom);
     }
     
-    int RenvoitValeurPairre()
+    int renvoitValeurPairre()
     {
            ArrayList<Integer> CarteVal = new ArrayList<Integer> ();
            CarteVal.add(main.mainJ[0].getValeur());
@@ -61,24 +61,24 @@ public class MainPaire extends MainJeu{
                    retour = CarteVal.get(boucle);
            }
            
-           ValeurPaire = retour;
-           return ValeurPaire;
+           valeurPaire = retour;
+           return valeurPaire;
     }
     
-    int[] RetourneListeDes3CartesRestantTriee()
+    int[] retourneListeDes3CartesRestantTriee()
     {
            int[] CarteVal = new int[3];
            int compte = 0;
            int boucle = 0;
            for(boucle=0;boucle<5;boucle++)
            {
-               if (main.mainJ[boucle].getValeur() != ValeurPaire)
+               if (main.mainJ[boucle].getValeur() != valeurPaire)
                {
                    CarteVal[compte] = main.mainJ[boucle].getValeur();
                    compte = compte + 1;
                }
            }         
-           ListeDes3CartesRestantTrie = CarteVal;
+           listeDes3CartesRestantTrie = CarteVal;
            return CarteVal; 
     }
 }
