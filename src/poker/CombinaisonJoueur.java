@@ -28,7 +28,7 @@ public class CombinaisonJoueur {
         CombinaisonJeu combinaisonJ = new CombinaisonJeu(this.main);
         boolean TruePaire = combinaisonJ.CombinaisonIsPairre();
         boolean TrueBrelan = combinaisonJ.CombinaisonIsBrelan();
-        boolean True2Paire = false;
+        boolean True2Paire = combinaisonJ.CombinaisonIs2Paire();
         boolean TrueSuite = false;
         boolean TrueCouleur = false;
         boolean TrueFull = false;

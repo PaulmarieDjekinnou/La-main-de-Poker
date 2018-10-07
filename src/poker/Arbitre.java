@@ -8,9 +8,9 @@ package poker;
 import java.util.ArrayList;
 
 /**
- *
  * @author PS5
  */
+
 public class Arbitre {
     
     MainJoueur MainOne;
@@ -41,6 +41,7 @@ public class Arbitre {
             switch(MainO){
                 case 0 : reponse = this.departagerPlusHauteCarte(); break;
                 case 1 : reponse = this.departagerPaire(); break;
+                case 2 : reponse = this.departagerDeuxPaire(); break;
                 case 3 : reponse = this.departagerBrelan(); break; 
             }
             
@@ -70,7 +71,36 @@ public class Arbitre {
         }
     }
     
-    
+      int departagerDeuxPaire()
+    {
+        MainOne.RangerCarteOrdreCroissant();
+        MainTwo.RangerCarteOrdreCroissant();   
+        MainDeuxPaire MainO = new MainDeuxPaire(MainOne,"2Paire");
+        MainDeuxPaire MainT = new MainDeuxPaire(MainTwo,"2Paire");
+        
+        int[] tab1 = MainO.RenvoitValeur2Pairre();
+        int[] tab2 = MainT.RenvoitValeur2Pairre();  
+        int a = 1;
+        while (tab1[a] == tab2[a])
+            {
+                a = a - 1;
+                if (a<0) break;
+            }
+
+        if (a<0)
+        {   /*
+            int val1 = MainO.RetourneValeurDerniereCarte(tab1);
+            int val2 = MainT.RetourneValeurDerniereCarte(tab2);
+            
+            if (val1 > val2) return 1;
+            else if (val1 < val2) return -1;
+            else */return 0;
+        }
+        else if (tab1[a] > tab2[a]) return 1;
+        else return -1;
+              
+    }
+      
     int departagerPaire()
     {
         MainOne.RangerCarteOrdreCroissant();
@@ -86,7 +116,7 @@ public class Arbitre {
         {
             int[] tab1 = PaireOne.RetourneListeDes3CartesRestantTriee();
             int[] tab2 = PaireTwo.RetourneListeDes3CartesRestantTriee();
-            int a = 0;
+            int a = 1;
             int reponse = 0;
             while (tab1[a] == tab2[a])
             {

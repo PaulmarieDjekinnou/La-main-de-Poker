@@ -33,9 +33,9 @@ public class MainJoueur {
         /* Tri croissant des cartes */
         
         int i=0,j=0,temp=0;
-        for(i=0;i<3;i++)
+        for(i=0;i<4;i++)
         {
-            for(j=i+1;j<3;j++)
+            for(j=i+1;j<4;j++)
             {
                 if (this.mainJ[i].getValeur() > this.mainJ[j].getValeur())
                 {
