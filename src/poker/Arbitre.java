@@ -45,6 +45,7 @@ public class Arbitre {
                 case 3 : reponse = this.departagerBrelan(); break; 
                 case 4 : reponse = this.departagerSuite(); break;
                 case 5 : reponse = this.departagerCouleur(); break;
+                case 6 : reponse = this.departagerFull(); break;
             }
             
             if(reponse==1) Vainqueur="Main1";
@@ -52,6 +53,19 @@ public class Arbitre {
             else Vainqueur="Egalité";
         }
     }
+    
+    int departagerFull()
+    {
+        MainFull MainO = new MainFull(MainOne,"Full");
+        MainFull MainT = new MainFull(MainTwo,"Full");
+        int val1 = MainO.renvoiValeurBrelan();
+        int val2 = MainT.renvoiValeurBrelan(); 
+        if(val1 > val2) return 1;
+        else if (val1 < val2) return -1;
+        return 0;
+    } 
+        
+    
     
     int departagerSuite()
     {

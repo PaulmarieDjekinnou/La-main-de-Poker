@@ -31,7 +31,7 @@ public class CombinaisonJoueur {
         boolean True2Paire = combinaisonJ.combinaisonIs2Paire();
         boolean TrueSuite = combinaisonJ.combinaisonIsSuite();
         boolean TrueCouleur = combinaisonJ.combinaisonIsCouleur();
-        boolean TrueFull = false;
+        boolean TrueFull = combinaisonJ.combinaisonIsFull();
         boolean TrueQuinte = false;
         boolean TrueCarre = false;
       

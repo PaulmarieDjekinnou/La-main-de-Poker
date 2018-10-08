@@ -177,4 +177,47 @@ public class CombinaisonJeu {
             return TrueCouleur;
     }
     
+    boolean combinaisonIsFull()
+    {
+        
+           boolean trueFull = false;
+           ArrayList<Integer> CarteVal = new ArrayList<Integer> ();
+           CarteVal.add(main.mainJ[0].getValeur());
+           
+           int boucle = 0;
+           for(boucle=1;boucle<5;boucle++)
+           {
+               if (!CarteVal.contains(main.mainJ[boucle].getValeur()))
+                  CarteVal.add(main.mainJ[boucle].getValeur());
+           }
+           ArrayList<Integer> CarteOcc = new ArrayList<Integer> ();    
+           for(boucle=0;boucle<CarteVal.size();boucle++)
+           {
+               CarteOcc.add(0);
+           }
+          
+           /* Fin enregistrement */
+           
+           /* Comptage des occurences */
+           
+           int boucle1 = 0;
+           for(boucle=0;boucle<CarteVal.size();boucle++)
+           {
+              for(boucle1=0;boucle1<5;boucle1++)
+              {
+                  if (main.mainJ[boucle1].getValeur() == CarteVal.get(boucle))
+                  {
+                      int tempo = CarteOcc.get(boucle);
+                      tempo = tempo + 1;
+                      CarteOcc.set(boucle,tempo);
+                  }
+              }
+           }
+           
+           
+            if (CarteOcc.contains(2) && CarteOcc.contains(3)) trueFull = true;
+                 else trueFull = false;
+            return trueFull;
+    }
+    
 }

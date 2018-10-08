@@ -25,7 +25,7 @@ public class Main {
         System.out.println("*****Kata - La main de Poker*****\n");
         System.out.println("Bienvenue!!!\n");
         System.out.print("Main 1: ");
-        Main1.lireMain(paquet,1);
+        Main1.lireMain(paquet,5);
         System.out.print("Main 2: ");
         Main2.lireMain(paquet,5);
        
