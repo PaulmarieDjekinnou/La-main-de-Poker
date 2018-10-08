@@ -220,4 +220,37 @@ public class CombinaisonJeu {
             return trueFull;
     }
     
+    boolean CombinaisonIsCarre()
+    {  
+           boolean trueCarre = false;
+           int premier = main.mainJ[0].getValeur();
+           int boucle = 0;
+           int compteur = 1;
+           
+           for(boucle=1;boucle<5;boucle++)
+           {
+             if (main.mainJ[boucle].getValeur() == premier)
+             {
+                compteur = compteur + 1;
+             }
+           }
+            
+           if (compteur < 4)
+           {
+              premier = main.mainJ[4].getValeur();
+              compteur = 1;
+           
+                for(boucle=0;boucle<4;boucle++)
+                {
+                  if (main.mainJ[boucle].getValeur() == premier)
+                  {
+                     compteur = compteur + 1;
+                  }
+                }
+           }
+           
+           if (compteur >= 4) trueCarre = true;
+           else trueCarre = false;
+           return trueCarre;
+    }
 }
