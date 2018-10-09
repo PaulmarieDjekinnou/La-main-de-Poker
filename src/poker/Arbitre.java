@@ -262,15 +262,15 @@ public class Arbitre {
             int val2 = MainT.retourneValeurDerniereCarte(tab2);
             
             if (val1 > val2) 
-                return "La main 1 gagne avec la carte la plus élevée : "+renvoitNomCarte(val1);
+                return "La main 1 gagne avec deux paire de carte plus élevée : "+renvoitNomCarte(val1);
             else if (val1 < val2) 
-                return "La main 2 gagne avec la carte la plus élevée : "+renvoitNomCarte(val2);
+                return "La main 2 gagne avec deux paire de carte plus élevée : "+renvoitNomCarte(val2);
             else return "Egalité";
         }
         else if (tab1[a] > tab2[a])
             return "La main 1 gagne avec deux paire de : "+renvoitNomCarte(tab1[0])+" et de : "+renvoitNomCarte(tab1[1]);
         else 
-            return "La main 2 gagne avec deux paire de : "+renvoitNomCarte(tab1[0])+" et de : "+renvoitNomCarte(tab1[1]);
+            return "La main 2 gagne avec deux paire de : "+renvoitNomCarte(tab2[0])+" et de : "+renvoitNomCarte(tab2[1]);
     }
       
     String departagerPaire()
@@ -301,9 +301,9 @@ public class Arbitre {
             else
             {
                 if (tab1[a] > tab2[a]) 
-                    return "La main 1 gagne avec la carte la plus élevée : "+renvoitNomCarte(tab1[a]);
+                    return "La main 1 gagne avec paire de carte plus élevée : "+renvoitNomCarte(tab1[a]);
                 else 
-                    return "La main 2 gagne avec la carte la plus élevée : "+renvoitNomCarte(tab2[a]);
+                    return "La main 2 gagne avec paire de carte plus élevée : "+renvoitNomCarte(tab2[a]);
             }
         }
     }
