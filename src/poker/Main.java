@@ -8,7 +8,7 @@ package poker;
 
 /**
  *
- * @author PS5
+ * @author PS5_The_Beginners
  */
 public class Main {
     
@@ -28,9 +28,9 @@ public class Main {
         Main1.lireMain(paquet,5);
         System.out.print("Main 2: ");
         Main2.lireMain(paquet,5);
-       
-        System.out.println("Main 1 : "+Main1.determinerLaMain());
-        System.out.println("Main 2 : "+Main2.determinerLaMain());
+
+        Main1.determinerLaMain();
+        Main2.determinerLaMain();
         System.out.println(Main1.compareMain(Main2));
      }
 }

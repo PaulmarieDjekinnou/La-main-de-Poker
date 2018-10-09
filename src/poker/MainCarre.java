@@ -7,7 +7,7 @@ package poker;
 
 /**
  *
- * @author KOFFI Merveille
+ * @author PS5_The_Beginners
  */
 public class MainCarre extends MainJeu {
     

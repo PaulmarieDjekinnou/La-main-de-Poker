@@ -5,12 +5,11 @@
  */
 package poker;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
  *
- * @author PS5
+ * @author PS5_The_Beginners
  */
 public class MainJoueur {
     

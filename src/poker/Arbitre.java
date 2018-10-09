@@ -5,10 +5,8 @@
  */
 package poker;
 
-import java.util.ArrayList;
-
 /**
- * @author PS5
+ * @author PS5_The_Beginners
  */
 
 public class Arbitre {

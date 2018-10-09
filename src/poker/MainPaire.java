@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author KOFFI Merveille
+ * @author PS5_The_Beginners
  */
 public class MainPaire extends MainJeu{
     

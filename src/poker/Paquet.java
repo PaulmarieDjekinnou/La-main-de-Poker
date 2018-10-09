@@ -7,7 +7,7 @@ package poker;
 
 /**
  *
- * @author PS5
+ * @author PS5_The_Beginners
  */
 public class Paquet {
     //Jeu de 52 cartes
