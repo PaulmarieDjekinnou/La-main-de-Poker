@@ -15,7 +15,7 @@ public class Arbitre {
     
     MainJoueur MainOne;
     MainJoueur MainTwo;
-    String     Vainqueur;
+    String     reponseArbitre;
     
     public Arbitre(MainJoueur one,MainJoueur two)
     {
@@ -23,85 +23,182 @@ public class Arbitre {
         MainTwo = two;
     }
     
-    public String getVainqueur()
-    {
-        return Vainqueur;
-    }
-    
     public void ComparerLesDeuxMains()
     {
         int MainO = CombinaisonJoueur.convertirMain(MainOne.getCombinaison());
         int MainT = CombinaisonJoueur.convertirMain(MainTwo.getCombinaison());
         
-        if (MainO > MainT) Vainqueur="Main1";
-        else if (MainO < MainT) Vainqueur="Main2";
+        if (MainO > MainT) donnerReponseMainDifferente(1);
+        else if (MainO < MainT) donnerReponseMainDifferente(2);
         else
         {
-            int reponse = 0;
             switch(MainO){
-                case 0 : reponse = this.departagerPlusHauteCarte(); break;
-                case 1 : reponse = this.departagerPaire(); break;
-                case 2 : reponse = this.departagerDeuxPaire(); break;
-                case 3 : reponse = this.departagerBrelan(); break; 
-                case 4 : reponse = this.departagerSuite(); break;
-                case 5 : reponse = this.departagerCouleur(); break;
-                case 6 : reponse = this.departagerFull(); break;
-                case 7 : reponse = this.departagerCarre(); break;
-                case 8 : reponse = this.departagerQuinte(); break;
+                case 0 : reponseArbitre = this.departagerPlusHauteCarte(); break;
+                case 1 : reponseArbitre = this.departagerPaire(); break;
+                case 2 : reponseArbitre = this.departagerDeuxPaire(); break;
+                case 3 : reponseArbitre = this.departagerBrelan(); break; 
+                case 4 : reponseArbitre = this.departagerSuite(); break;
+                case 5 : reponseArbitre = this.departagerCouleur(); break;
+                case 6 : reponseArbitre = this.departagerFull(); break;
+                case 7 : reponseArbitre = this.departagerCarre(); break;
+                case 8 : reponseArbitre = this.departagerQuinte(); break;
             }
-            
-            if(reponse==1) Vainqueur="Main1";
-            else if (reponse==-1) Vainqueur="Main2";
-            else Vainqueur="Egalité";
         }
     }
     
-    int departagerFull()
+    void donnerReponseMainDifferente(int mainNum)
+    {
+        switch(mainNum)
+        {
+            case 1 : {
+                        int MainO = CombinaisonJoueur.convertirMain(MainOne.getCombinaison());
+                        switch(MainO)
+                        {
+                            case 0 : {
+                               MainPlusHauteCarte test = new MainPlusHauteCarte(MainOne,"Plus haute carte");
+                               reponseArbitre = "La main 1 gagne avec carte la plus élevée : "+renvoitNomCarte(test.determinerLaCartePlusHaute(4));
+                                     }break;
+                            case 1 : {
+                               MainPaire test = new MainPaire(MainOne,"Paire");
+                               reponseArbitre = "La main 1 gagne avec paire de "+renvoitNomCarte(test.renvoitValeurPairre());
+                                     }break;
+                            case 2 : {
+                               MainDeuxPaire test = new MainDeuxPaire(MainOne,"2Paire");
+                               int[] tab1 = test.renvoitValeur2Pairre();
+                               reponseArbitre = "La main 1 gagne avec deux paire de : "+renvoitNomCarte(tab1[0])+" et de : "+renvoitNomCarte(tab1[1]);
+                                     }break;
+                            case 3 : {
+                                MainBrelan test = new MainBrelan(MainOne,"Brelan");
+                                reponseArbitre = "La main 1 gagne avec brelan de : "+renvoitNomCarte(test.renvoiValeurBrelan());
+                                     }break;
+                            case 4 : {
+                                MainSuite test = new MainSuite(MainOne,"Suite");
+                                reponseArbitre = "La main 1 gagne avec suite de : "+renvoitNomCarte(test.RenvoitValeurSuite());
+                                     }break;
+                            case 5 : {
+                                MainCouleur test = new MainCouleur(MainOne,"Couleur");
+                                reponseArbitre = "La main 1 gagne avec couleur de carte haute : "+renvoitNomCarte(test.determinerLaCartePlusHaute(4));
+                                     }break;
+                            case 6 : {
+                                MainFull test = new MainFull(MainOne,"Full");
+                                reponseArbitre = "La main 1 gagne avec Full de valeur brelan : "+renvoitNomCarte(test.renvoiValeurBrelan());
+                                     }break;
+                            case 7 : {
+                                MainCarre test = new MainCarre(MainOne,"Carre");
+                                reponseArbitre = "La main 1 gagne avec Carre de : "+renvoitNomCarte(test.retourneValeurCarre());
+                                     }break;
+                            case 8 : {
+                                MainQuinteFlush test = new MainQuinteFlush(MainOne,"Quinte");
+                                reponseArbitre = "La main 1 gagne avec Quinte de : "+renvoitNomCarte(test.renvoitValeurQuinte());
+                                     }break;
+                        } 
+                     }break;
+            
+            case 2 : {
+                        int MainO = CombinaisonJoueur.convertirMain(MainTwo.getCombinaison());
+                        switch(MainO)
+                        {
+                            case 0 : {
+                               MainPlusHauteCarte test = new MainPlusHauteCarte(MainTwo,"Plus haute carte");
+                               reponseArbitre = "La main 2 gagne avec carte la plus élevée : "+renvoitNomCarte(test.determinerLaCartePlusHaute(4));
+                                     }break;
+                            case 1 : {
+                               MainPaire test = new MainPaire(MainTwo,"Paire");
+                               reponseArbitre = "La main 2 gagne avec paire de "+renvoitNomCarte(test.renvoitValeurPairre());
+                                     }break;
+                            case 2 : {
+                               MainDeuxPaire test = new MainDeuxPaire(MainTwo,"2Paire");
+                               int[] tab1 = test.renvoitValeur2Pairre();
+                               reponseArbitre = "La main 2 gagne avec deux paire de : "+renvoitNomCarte(tab1[0])+" et de : "+renvoitNomCarte(tab1[1]);
+                                     }break;
+                            case 3 : {
+                                MainBrelan test = new MainBrelan(MainTwo,"Brelan");
+                                reponseArbitre = "La main 2 gagne avec brelan de : "+renvoitNomCarte(test.renvoiValeurBrelan());
+                                     }break;
+                            case 4 : {
+                                MainSuite test = new MainSuite(MainTwo,"Suite");
+                                reponseArbitre = "La main 2 gagne avec suite de : "+renvoitNomCarte(test.RenvoitValeurSuite());
+                                     }break;
+                            case 5 : {
+                                MainCouleur test = new MainCouleur(MainTwo,"Couleur");
+                                reponseArbitre = "La main 2 gagne avec couleur de carte haute : "+renvoitNomCarte(test.determinerLaCartePlusHaute(4));
+                                     }break;
+                            case 6 : {
+                                MainFull test = new MainFull(MainTwo,"Full");
+                                reponseArbitre = "La main 2 gagne avec Full de valeur brelan : "+renvoitNomCarte(test.renvoiValeurBrelan());
+                                     }break;
+                            case 7 : {
+                                MainCarre test = new MainCarre(MainTwo,"Carre");
+                                reponseArbitre = "La main 2 gagne avec Carre de : "+renvoitNomCarte(test.retourneValeurCarre());
+                                     }break;
+                            case 8 : {
+                                MainQuinteFlush test = new MainQuinteFlush(MainTwo,"Quinte");
+                                reponseArbitre = "La main 2 gagne avec Quinte de : "+renvoitNomCarte(test.renvoitValeurQuinte());
+                                     }break;
+                        } 
+                     }break;
+        }
+    }
+    
+    String departagerFull()
     {
         MainFull MainO = new MainFull(MainOne,"Full");
         MainFull MainT = new MainFull(MainTwo,"Full");
         int val1 = MainO.renvoiValeurBrelan();
         int val2 = MainT.renvoiValeurBrelan(); 
-        if(val1 > val2) return 1;
-        else if (val1 < val2) return -1;
-        return 0;
+        if(val1 > val2) 
+            return "La main 1 gagne avec Full de valeur brelan : "+renvoitNomCarte(val1);
+        else if (val1 < val2) 
+            return "La main 2 gagne avec Full de valeur brelan : "+renvoitNomCarte(val2);
+        return "Egalité";
     } 
     
-     int departagerCarre()
+    String getreponseArbitre()
+    {
+     return reponseArbitre;    
+    }
+    
+    String departagerCarre()
     {
         MainCarre MainO = new MainCarre(MainOne,"Carre");
         MainCarre MainT = new MainCarre(MainTwo,"Carre");
         int val1 = MainO.retourneValeurCarre();
         int val2 = MainT.retourneValeurCarre();
-        if (val1 > val2) return 1;
-        else if (val1 < val2) return -1;
-        else return 0;
+        if (val1 > val2)
+            return "La main 1 gagne avec carre de : "+renvoitNomCarte(val1);
+        else if (val1 < val2) 
+            return "La main 2 gagne avec carre de : "+renvoitNomCarte(val2);
+        else return "Egalité";
     }
     
     
-    int departagerSuite()
+    String departagerSuite()
     {
         MainSuite MainO = new MainSuite(MainOne,"Suite");
         MainSuite MainT = new MainSuite(MainTwo,"Suite");
         int val1 = MainO.RenvoitValeurSuite();
         int val2 = MainT.RenvoitValeurSuite(); 
-        if (val1 > val2) return 1;
-        else if (val1 < val2) return -1;
-        else return 0;
+        if (val1 > val2) 
+            return "La main 1 gagne avec suite de : "+renvoitNomCarte(val1);
+        else if (val1 < val2) 
+            return "La main 2 gagne avec suite de : "+renvoitNomCarte(val2);
+        else return "Egalité";
     }
     
-    int departagerQuinte()
+    String departagerQuinte()
     {
         MainQuinteFlush MainO = new MainQuinteFlush(MainOne,"Quinte");
         MainQuinteFlush MainT = new MainQuinteFlush(MainTwo,"Quinte");
         int val1 = MainO.renvoitValeurQuinte();
         int val2 = MainT.renvoitValeurQuinte(); 
-        if (val1 > val2) return 1;
-        else if (val1 < val2) return -1;
-        else return 0;
+        if (val1 > val2) 
+            return "La main 1 gagne avec Quinte flush de suite : "+renvoitNomCarte(val1);
+        else if (val1 < val2) 
+            return "La main 2 gagne avec Quinte flush de suite : "+renvoitNomCarte(val2);
+        else return "Egalité";
     }
     
-    int departagerPlusHauteCarte()
+    String departagerPlusHauteCarte()
     {
         MainPlusHauteCarte MainO = new MainPlusHauteCarte(MainOne,"Plus Haute Carte");
         MainPlusHauteCarte MainT = new MainPlusHauteCarte(MainTwo,"Plus Haute Carte");
@@ -112,16 +209,39 @@ public class Arbitre {
             a = a - 1;
             if (a<0) break;
         }
-        if (a<0) return 0;
+        if (a<0) return "Egalité";
         else
         {
             if (MainOne.mainJ[a].getValeur() > MainTwo.mainJ[a].getValeur()) 
-                return 1;
-            else return -1;
+                return "La main 1 gagne avec la carte la plus élevée : "+renvoitNomCarte(MainOne.mainJ[a].getValeur());           
+            else 
+                return "La main 2 gagne avec la carte la plus élevée : "+renvoitNomCarte(MainTwo.mainJ[a].getValeur());
         }
     }
     
-      int departagerDeuxPaire()
+    String renvoitNomCarte(int a)
+    {
+        String val="";
+        switch (a)
+        {
+            case 2 : val = "2";break;
+            case 3 : val = "3";break;
+            case 4 : val = "4";break;
+            case 5 : val = "5";break;
+            case 6 : val = "6";break;
+            case 7 : val = "7";break;
+            case 8 : val = "8";break;
+            case 9 : val = "9";break;
+            case 10 : val = "10";break;
+            case 11 : val = "Valet";break;
+            case 12 : val = "Dame";break;
+            case 13 : val = "Roi";break;
+            case 14 : val = "As";break;
+        }
+        return val;
+    }
+    
+    String departagerDeuxPaire()
     {
         MainOne.rangerCarteOrdreCroissant();
         MainTwo.rangerCarteOrdreCroissant();   
@@ -141,15 +261,19 @@ public class Arbitre {
             int val1 = MainO.retourneValeurDerniereCarte(tab1);
             int val2 = MainT.retourneValeurDerniereCarte(tab2);
             
-            if (val1 > val2) return 1;
-            else if (val1 < val2) return -1;
-            else return 0;
+            if (val1 > val2) 
+                return "La main 1 gagne avec la carte la plus élevée : "+renvoitNomCarte(val1);
+            else if (val1 < val2) 
+                return "La main 2 gagne avec la carte la plus élevée : "+renvoitNomCarte(val2);
+            else return "Egalité";
         }
-        else if (tab1[a] > tab2[a]) return 1;
-        else return -1; 
+        else if (tab1[a] > tab2[a])
+            return "La main 1 gagne avec deux paire de : "+renvoitNomCarte(tab1[0])+" et de : "+renvoitNomCarte(tab1[1]);
+        else 
+            return "La main 2 gagne avec deux paire de : "+renvoitNomCarte(tab1[0])+" et de : "+renvoitNomCarte(tab1[1]);
     }
       
-    int departagerPaire()
+    String departagerPaire()
     {
         MainOne.rangerCarteOrdreCroissant();
         MainTwo.rangerCarteOrdreCroissant();
@@ -158,8 +282,10 @@ public class Arbitre {
         int Paire1 = PaireOne.renvoitValeurPairre();
         int Paire2 = PaireTwo.renvoitValeurPairre();
         
-        if (Paire1 > Paire2)  return 1;
-        else if (Paire1 < Paire2) return -1; 
+        if (Paire1 > Paire2) 
+            return "La main 1 gagne avec paire de : "+renvoitNomCarte(Paire1);
+        else if (Paire1 < Paire2) 
+            return "La main 2 gagne avec paire de : "+renvoitNomCarte(Paire2);
         else 
         {
             int[] tab1 = PaireOne.retourneListeDes3CartesRestantTriee();
@@ -171,18 +297,19 @@ public class Arbitre {
                 a = a - 1;
                 if (a<0) break;
             }
-            if (a<0) return 0;
+            if (a<0) return "Egalité";
             else
             {
                 if (tab1[a] > tab2[a]) 
-                    return 1;
-                else return -1;
+                    return "La main 1 gagne avec la carte la plus élevée : "+renvoitNomCarte(tab1[a]);
+                else 
+                    return "La main 2 gagne avec la carte la plus élevée : "+renvoitNomCarte(tab2[a]);
             }
         }
     }
     
     
-    int departagerBrelan()
+    String departagerBrelan()
     {
         MainOne.rangerCarteOrdreCroissant();
         MainTwo.rangerCarteOrdreCroissant(); 
@@ -191,12 +318,14 @@ public class Arbitre {
         int val1 = BrelanOne.renvoiValeurBrelan();
         int val2 = BrelanTwo.renvoiValeurBrelan();
         
-        if(val1 > val2) return 1;
-        else if (val1 < val2) return -1;
-        return 0;
+        if(val1 > val2) 
+            return "La main 1 gagne avec brelan de : "+renvoitNomCarte(val1);
+        else if (val1 < val2) 
+            return "La main 2 gagne avec brelan de : "+renvoitNomCarte(val2);
+        else return "Egalité";
     }
     
-    int departagerCouleur()
+    String departagerCouleur()
     {
         MainCouleur MainO = new MainCouleur(MainOne,"Couleur");
         MainCouleur MainT = new MainCouleur(MainTwo,"Couleur");
@@ -207,12 +336,13 @@ public class Arbitre {
             a = a - 1;
             if (a<0) break;
         }
-        if (a<0) return 0;
+        if (a<0) return "Egalité";
         else
         {
             if (MainOne.mainJ[a].getValeur() > MainTwo.mainJ[a].getValeur()) 
-                return 1;
-            else return -1;
+                return "La main 1 gagne avec la couleur de carte la plus élevée : "+renvoitNomCarte(MainOne.mainJ[a].getValeur());
+            else 
+                return "La main 2 gagne avec la couleur de carte la plus élevée : "+renvoitNomCarte(MainTwo.mainJ[a].getValeur());
         }
     }
 }

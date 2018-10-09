@@ -68,15 +68,12 @@ public class MainJoueur {
     }
      
      
-    public int compareMain(MainJoueur Main)
+    public String compareMain(MainJoueur Main)
     {
         Arbitre arbitre = new Arbitre(this,Main);
         arbitre.ComparerLesDeuxMains();
-        String Vainqueur = arbitre.getVainqueur();
-        
-        if(Vainqueur.equals("Main1")) return 1;
-        else if (Vainqueur.equals("Main2")) return -1;
-        else return 0;
+        String reponse = arbitre.getreponseArbitre();
+        return reponse;
     }
     
    

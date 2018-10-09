@@ -31,10 +31,6 @@ public class Main {
        
         System.out.println("Main 1 : "+Main1.determinerLaMain());
         System.out.println("Main 2 : "+Main2.determinerLaMain());
-                    
-        if (Main1.compareMain(Main2) == 1) System.out.println("Main 1 a gagné");
-        else if (Main1.compareMain(Main2) == -1) System.out.println("Main 2 a gagné");
-        else System.out.println("Egalité");
-        
+        System.out.println(Main1.compareMain(Main2));
      }
 }
