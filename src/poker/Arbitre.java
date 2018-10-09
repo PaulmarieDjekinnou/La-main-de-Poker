@@ -47,6 +47,7 @@ public class Arbitre {
                 case 5 : reponse = this.departagerCouleur(); break;
                 case 6 : reponse = this.departagerFull(); break;
                 case 7 : reponse = this.departagerCarre(); break;
+                case 8 : reponse = this.departagerQuinte(); break;
             }
             
             if(reponse==1) Vainqueur="Main1";
@@ -84,6 +85,17 @@ public class Arbitre {
         MainSuite MainT = new MainSuite(MainTwo,"Suite");
         int val1 = MainO.RenvoitValeurSuite();
         int val2 = MainT.RenvoitValeurSuite(); 
+        if (val1 > val2) return 1;
+        else if (val1 < val2) return -1;
+        else return 0;
+    }
+    
+    int departagerQuinte()
+    {
+        MainQuinteFlush MainO = new MainQuinteFlush(MainOne,"Quinte");
+        MainQuinteFlush MainT = new MainQuinteFlush(MainTwo,"Quinte");
+        int val1 = MainO.renvoitValeurQuinte();
+        int val2 = MainT.renvoitValeurQuinte(); 
         if (val1 > val2) return 1;
         else if (val1 < val2) return -1;
         else return 0;

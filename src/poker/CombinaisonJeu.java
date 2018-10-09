@@ -220,7 +220,7 @@ public class CombinaisonJeu {
             return trueFull;
     }
     
-    boolean CombinaisonIsCarre()
+    boolean combinaisonIsCarre()
     {  
            boolean trueCarre = false;
            int premier = main.mainJ[0].getValeur();
@@ -252,5 +252,29 @@ public class CombinaisonJeu {
            if (compteur >= 4) trueCarre = true;
            else trueCarre = false;
            return trueCarre;
+    }
+    
+    boolean combinaisonIsQuinte()
+    {
+         int a = 0;
+         int valeur = main.mainJ[0].getValeur();  //Valeur de la plus petite carte
+         String typeCarte = main.mainJ[0].getType();
+         boolean trueQuinte = true;
+         for(a=1;a<5;a++)
+         {
+             if (main.mainJ[a].getValeur()==valeur+1 && main.mainJ[a].getType().equals(typeCarte))
+             {
+                 valeur = main.mainJ[a].getValeur();
+                 //System.out.println("okki");
+             }
+             else 
+             {
+                 trueQuinte = false;
+                 break;
+             }
+             
+         }
+         
+         return trueQuinte;
     }
 }
