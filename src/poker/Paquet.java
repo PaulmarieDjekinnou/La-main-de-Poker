@@ -100,50 +100,52 @@ public class Paquet {
         nbCo = nbOccurences("Co", chaine);
         nbPi = nbOccurences("Pi", chaine);
 
-        if(chaine.length() > 4) return new Carte();
+        if (chaine.equals("")) return new Carte();
         else {
-            //System.out.println(chaine);
-            if (nbOccurences("10", chaine) == 0 && chaine.length() == 4) return new Carte();
+            if (chaine.length() > 4) return new Carte();
             else {
-                if (chaine.length() == 3){
+                if (nbOccurences("10", chaine) == 0 && chaine.length() == 4) return new Carte();
+                else {
+                    //if (chaine.length() == 3){
                     //On vérifie en premier lieu le type
                     String sousChaine = new String("");
                     sousChaine = chaine.substring(chaine.length() - 2);
                     //System.out.println(sousChaine);
-                    if (sousChaine.equals("Tr") || sousChaine.equals("Ca") || sousChaine.equals("Co") || sousChaine.equals("Pi"))
-                    {
+                    if (sousChaine.equals("Tr") || sousChaine.equals("Ca") || sousChaine.equals("Co") || sousChaine.equals("Pi")) {
                         //mainV.setType("Tr");
                         if (sousChaine.equals("Tr")) mainV.setType("Tr");
                         if (sousChaine.equals("Ca")) mainV.setType("Ca");
                         if (sousChaine.equals("Co")) mainV.setType("Co");
                         if (sousChaine.equals("Pi")) mainV.setType("Pi");
                         //On vérifie la valeur
-                        if (nbOccurences("10", chaine) == 1){
+                        if (nbOccurences("10", chaine) == 1 && chaine.length() == 4) {
                             mainV.setValeur(10);
                             return mainV;
-                        }else {
-                            sousChaine = chaine.substring(0,1);
-                            if (sousChaine.equals("V")) mainV.setValeur(11);
-                            else if (sousChaine.equals("D")) mainV.setValeur(12);
-                            else if (sousChaine.equals("R")) mainV.setValeur(13);
-                            else if (sousChaine.equals("A")) mainV.setValeur(14);
-                            else if (isANumber(sousChaine) == true){
-                                //System.out.println(isANumber(sousChaine));
-                                int testTrueInt = 0;
-                                testTrueInt = Integer.parseInt(sousChaine);
-                                if (testTrueInt < 2) return new Carte();
-                                else {
-                                    mainV.setValeur(testTrueInt);
-                                    return mainV;
-                                }
-                            }
-                            else return new Carte();
+                        } else {
+                            if (chaine.length() == 3) {
+                                sousChaine = chaine.substring(0, 1);
+                                if (sousChaine.equals("V")) mainV.setValeur(11);
+                                else if (sousChaine.equals("D")) mainV.setValeur(12);
+                                else if (sousChaine.equals("R")) mainV.setValeur(13);
+                                else if (sousChaine.equals("A")) mainV.setValeur(14);
+                                else if (isANumber(sousChaine) == true) {
+                                    //System.out.println(isANumber(sousChaine));
+                                    int testTrueInt = 0;
+                                    testTrueInt = Integer.parseInt(sousChaine);
+                                    if (testTrueInt < 2) return new Carte();
+                                    else {
+                                        mainV.setValeur(testTrueInt);
+                                        return mainV;
+                                    }
+                                } else return new Carte();
+                            } else return new Carte();
                         }
                     }
-                }else return new Carte();
-            }
+                }
 
-        } return mainV;
+            }
+            return mainV;
+        }
     }
     
     public void affichepaquet()

@@ -33,8 +33,8 @@ public class MainCarre extends MainJeu {
              }
            }
             
-           if (compteur < 4) index = main.mainJ[0].getValeur();
-           else index = main.mainJ[4].getValeur();
+           if (compteur < 4) index = main.mainJ[4].getValeur();
+           else index = main.mainJ[0].getValeur();
            this.valeurCarre = index;
            return valeurCarre;
     }
