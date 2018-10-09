@@ -2,9 +2,9 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-    <groupId>The Beginners</groupId> <!-- CHANGE ME -->
+    <groupId>The_Beginners</groupId> <!-- CHANGE ME -->
     <artifactId>poker</artifactId> <!-- CHANGE ME -->
-    <version>0.1-SNAPSHOT</version> <!-- CHANGE ME -->
+    <version>FINAL</version> <!-- CHANGE ME -->
 
   <properties>
    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> <!-- CHANGE ME IF NEEDED, other : ISO-8859-1 -->
@@ -13,10 +13,10 @@
   </properties>
 
   <build>
-    <!-- USE ME TO OVERRIDE DEFAULT STRUCTURE
+    <!-- USE ME TO OVERRIDE DEFAULT STRUCTURE-->
     <sourceDirectory>src</sourceDirectory> <!-- CHANGE ME -->
     <testSourceDirectory>test</testSourceDirectory> <!-- CHANGE ME -->
-    -->
+
     <plugins>
        
       <plugin>
@@ -31,8 +31,8 @@
           </execution>
         </executions>
         <configuration>
-          <mainClass>Complete.Qualified.Name.Of.The.Main.Class</mainClass> <!-- CHANGE ME -->
-<!--          <arguments>
+          <mainClass>poker.Main</mainClass> <!-- CHANGE ME -->
+         <arguments>
             <argument>argument1</argument>
           </arguments>
           <systemProperties>
@@ -41,7 +41,7 @@
               <value>myvalue</value>
             </systemProperty>
           </systemProperties>
--->
+
         </configuration>
       </plugin>
       
